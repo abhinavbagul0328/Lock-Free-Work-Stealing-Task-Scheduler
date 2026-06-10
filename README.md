@@ -70,7 +70,7 @@ To quantify the performance improvements of this scheduler over naive implementa
 | **Queue Synchronization** | C++20 Atomics with `memory_order_release` | 2.81s | 0.10s | **28.1×** | 5M Pushes/Pops |
 | **False Sharing Prevention** | `alignas(64)` padding on atomic indices | 388 ms | 54 ms | **7.1×** | 100M Increments |
 | **Dynamic Load Balancing** | Distributed Deques + Randomized Stealing | 1.85s | 0.30s | **6.1×** | Unbalanced QSort |
-| **Recursive Task Spawning** | Implicit Routing via `thread_local` | 126 ns | 0 ns | **100% ↓** | Task Allocations |
+| **Recursive Task Spawning** | Implicit Routing via `thread_local` | 126 ns | 1 ns | **100% ↓** | Task Allocations |
 | **Massive Parallel Compute** | LIFO Local Execution for cache locality | 3.26s | 0.91s | **3.5×** | MatMul 1024x1024 |
 | **Uneven Workloads** | Active Spin-Wait with continuous Steal | 2.96s | 0.30s | **9.8×** | QuickSort 10M |
 
